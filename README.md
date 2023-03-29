@@ -1,6 +1,4 @@
-# CS162 Kanban Board Assignment (Trinh Nguyen)
-
-Demo of the app: https://www.loom.com/share/82ce24bb97db40ccb8f924e4df62fda3
+# CS162 Kanban Board 
 
 ## Functionalities
 The app displays a Kanban board which have 3 columns representing the tasks status.
