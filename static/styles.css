@@ -1,0 +1,159 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'serif';
+    background: linear-gradient(to right, #37306B, #5D9C59);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'serif';
+    background: linear-gradient(to right, #00425A, #5D9C59);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.board {
+    margin: 20px auto;
+    max-width: 1000px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.kanban {
+    display: flex;
+    justify-content: space-between;
+}
+
+.kanban-column {
+    flex: 1 0 300px;
+    height: 100%;
+    max-height: 1000px;
+    background-color: #FFFBE9;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    position: relative;
+    overflow: auto;
+}
+
+.kanban-task {
+    color: black;
+    font-size: 18px;
+    width: 250px;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    text-align: justify;
+    overflow: auto;
+}
+
+.kanban-column:nth-child(1) .kanban-task {
+    background-color: #edf1d6;
+}
+
+.kanban-column:nth-child(2) .kanban-task {
+    background-color: #ccd6a6;
+}
+
+.kanban-column:nth-child(3) .kanban-task {
+    background-color: #9dc08b;
+}
+
+.add-task-container {
+    display: flex;
+    font-family: 'serif';
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.add-task {
+    background-color: #fff;
+    color: #333;
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.task-actions {
+display: flex;
+justify-content: space-between;
+margin-top: 10px;
+}
+
+.edit-task {
+    margin-right: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.input-box {
+border-radius: 5px;
+font-family: Arial, sans-serif;
+direction: ltr;
+width: 200px;
+height: 40px;
+padding: 10px;
+font-size: 15px;
+margin-right: 35px;
+margin-left: 35px;
+border: 1px solid #ccc;
+}
+
+.button-container form {
+display: inline-block;
+}
+
+.delete-button{
+border-radius: 5px;
+background-color: #C3ACD0;
+}
+
+.update-button{
+border-radius: 5px;
+background-color: #93BFCF;
+margin-left: 155px;
+}
+
+#column1 {
+width: 300px;
+}
+
+#column2 {
+width: 300px;
+}
+
+#column3 {
+width: 300px;
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name ="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="stylesheet" href="./static/styles.css">
+    <title> Kanban Board</title>
+</head>
+<body>
+	<h1>Kanban Board</h1>
+	<div class="board">
+		<div class="kanban">
+            <div id ='column1' class="kanban-column">
+                <h2>To do</h2>
+                <form action="/add" method="POST">
+                    <input type="hidden" name="column" value="To Do">
+                    <div> 
+                        <input type="text" name="title" class= input-box placeholder="Enter To do">
+                        <br>
+                        <div class="add-task-container">
+                            <button type="submit" class="add-task">Add Task</button>
+                        </div>
+                    </div>
+                </form>
+                {% for task in task_list %}
+                    {% if task.status == 'To Do'%}
+                        <div class="kanban-task">
+                            <div class="task-tile">{{ task.title }}</div>
+                        </div>
+                        <div class="button-container">
+                            <form action="{{ url_for('delete', todo_id=task.id)}}" method="POST">
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                            <form action="{{ url_for('update', id=task.id, status=task.status)}}" method="POST">
+                                <button type="submit" class="update-button">Update</button>
+                            </form>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+        </div>
+            <div id ='column2' class="kanban-column">
+                <h2>In Progress</h2>
+                <form action="/add" method="POST">
+                    <input type="hidden" name="column" value="In Progress">
+                    <div> 
+                        <input type="text" name="title" class= input-box placeholder="Enter In Progress">
+                        <br>
+                        <div class="add-task-container">
+                            <button type="submit" class="add-task">Add Task</button>
+                        </div>
+                    </div>
+                </form>
+                {% for task in task_list %}
+                    {% if task.status == 'In Progress' %}
+                        <div class="kanban-task">
+                            <div class="task-tile">{{ task.title }}</div>
+                        </div>
+                        <div class="button-container">
+                            <form method="POST" action="{{ url_for('delete', todo_id=task.id) }}">
+                                <button type="submit" class="delete-button">Delete</button>
+                            </form>
+                            <form action="{{ url_for('update', id=task.id, status=task.status)}}" method="POST">
+                                <button type="submit" class="update-button">Update</button>
+                            </form>
+                        </div>  
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div id ='column3' class="kanban-column">
+                <h2>Completed</h2>
+                <form action="/add" method="POST">
+                    <input type="hidden" name="column" value="complete">
+                    <div> 
+                        <input type="text" name="title" class= input-box placeholder="Enter Completed">
+                        <br>
+                        <div class="add-task-container">
+                            <button type="submit" class="add-task">Add Task</button>
+                        </div>
+                    </div>
+                </form>
+                {% for task in task_list %}
+                    {% if task.status == 'Complete'%}
+                        <div class="kanban-task">
+                            <div class="task-tile">{{ task.title }}</div>
+                        </div>
+                        <form method="POST" action="{{ url_for('delete', todo_id=task.id) }}">
+                            <button type="submit" class="delete-button">Delete</button>
+                        </form>
+                    {% endif %}
+                {% endfor %}
+            </div>
+		</div>
+	</div>
+</body>
+</html>
